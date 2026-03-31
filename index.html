@@ -17,45 +17,49 @@
 <meta name="twitter:image" content="https://maceowhatley-code.github.io/discourse/og-image.png">
 <link rel="icon" type="image/png" href="OG_Logo.png">
 <style>
-/* ── FONTS ──────────────────────────────────────────────────────────────────
-   Body/UI: Apple system stack — clean, legible, zero download
-   Labels/codes: Courier New — used sparingly, only for metadata + pills
-   ────────────────────────────────────────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────────────────────────────
+   PALETTE — Option C: Cream + Earth
+   Background:  #f7f3ec  warm cream — feels like paper, like journalism
+   Green:       #1a6b45  deep forest — grounded, not tech-startup
+   Orange:      #d4622a  burnt orange — human, global, pulled from the logo
+   Text:        #1a1612  warm near-black — less cold than pure black
+   ───────────────────────────────────────────────────────────────────────────── */
 :root {
-  --sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --sans: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --mono: 'Courier New', Courier, monospace;
 
-  /* ── Background ── */
-  --bg:      #f5f5f7;   /* Apple light gray */
-  --bg2:     #ffffff;
-  --bg3:     #f0f0f2;
-  --bg-dark: #1d1d1f;   /* Apple near-black */
+  /* Backgrounds */
+  --bg:       #f7f3ec;
+  --bg2:      #ffffff;
+  --bg3:      #f0ebe2;
+  --bg-dark:  #1a1612;
 
-  /* ── Teal brand ── */
-  --teal:        #0a7d5c;
-  --teal-dim:    #085e44;
-  --teal-light:  #e6f4ef;
-  --teal-bright: #0e9e74;
-  --teal-border: #b8ddd0;
+  /* Brand — forest green */
+  --green:        #1a6b45;
+  --green-dim:    #145436;
+  --green-bright: #21895a;
+  --green-light:  #eaf4ee;
+  --green-border: #b8d9c8;
 
-  /* ── Text — all WCAG AA compliant on light bg ── */
-  --text:       #1d1d1f;   /* Apple primary — near-black */
-  --text-2:     #3d3d3f;   /* Strong secondary */
-  --text-3:     #6e6e73;   /* Apple secondary gray — passes AA on white */
-  --text-4:     #86868b;   /* Apple tertiary — use only on white, large text only */
+  /* Accent — burnt orange (National Geographic / Vice energy) */
+  --orange:       #d4622a;
+  --orange-dim:   #a84c20;
+  --orange-light: #fdf0e8;
+  --orange-border:#f0c4a8;
 
-  /* ── Borders ── */
-  --border:      #d2d2d7;  /* Apple separator */
-  --border-2:    #b8b8be;
+  /* Text — warm, not cold */
+  --text:   #1a1612;
+  --text-2: #3a3430;
+  --text-3: #6b6460;
+  --text-4: #9a9490;
 
-  /* ── Gold / warning ── */
-  --gold:        #8a6d00;
-  --gold-bg:     #fdf8e8;
-  --gold-border: #e0cc80;
+  /* Borders */
+  --border:   #ddd8d0;
+  --border-2: #c8c2b8;
 
-  /* ── Purple / IYKYK ── */
-  --purple:       #5e3ab4;
-  --purple-light: #f2eefe;
+  /* Purple — IYKYK only */
+  --purple:        #5e3ab4;
+  --purple-light:  #f2eefe;
   --purple-border: #c8b8f0;
   --purple-text:   #3d2080;
 
@@ -72,15 +76,14 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-a { color: var(--teal); text-decoration: none; }
-a:hover { color: var(--teal-bright); text-decoration: underline; }
+a { color: var(--green); text-decoration: none; }
+a:hover { color: var(--green-bright); text-decoration: underline; }
 
 .page { max-width: 880px; margin: 0 auto; padding: 0 28px 120px; }
 
-/* ── TICKER ── */
+/* ── TICKER — stays dark, editorial anchor ── */
 .ticker {
   background: var(--bg-dark);
   padding: 11px 28px;
@@ -90,18 +93,18 @@ a:hover { color: var(--teal-bright); text-decoration: underline; }
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: .08em;
-  color: #86868b;
+  color: #86827e;
   text-transform: uppercase;
 }
 .ticker-dot {
   width: 7px; height: 7px;
   border-radius: 50%;
-  background: #30d158; /* Apple green */
+  background: #30d158;
   flex-shrink: 0;
   animation: pulse 2s infinite;
 }
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
-.ticker strong { color: #f5f5f7; font-size: 12px; letter-spacing: .04em; }
+.ticker strong { color: #f7f3ec; font-size: 12px; letter-spacing: .04em; }
 
 /* ── HEADER ── */
 .header { padding: 56px 0 0; }
@@ -110,7 +113,7 @@ a:hover { color: var(--teal-bright); text-decoration: underline; }
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: .14em;
-  color: var(--text-3);   /* #6e6e73 — passes AA on white */
+  color: var(--text-3);
   text-transform: uppercase;
   display: flex;
   align-items: center;
@@ -157,32 +160,22 @@ a:hover { color: var(--teal-bright); text-decoration: underline; }
   letter-spacing: .1em;
   line-height: 2.1;
 }
-.partner-note a { color: var(--teal); }
+.partner-note a { color: var(--green); }
 
 /* ── TAGS + HEADLINE ── */
-.tags {
-  display: flex;
-  align-items: center;
-  gap: 0;
-  margin-bottom: 16px;
-}
-.tag {
-  font-size: 13px;
-  letter-spacing: .02em;
-  color: var(--text-3);   /* #6e6e73 */
-  font-weight: 400;
-}
-.tag-sep { margin: 0 10px; color: var(--border-2); }
+.tags { display:flex; align-items:center; gap:0; margin-bottom:16px; }
+.tag { font-size:13px; letter-spacing:.02em; color:var(--text-3); font-weight:400; }
+.tag-sep { margin:0 10px; color:var(--border-2); }
 
 .hero-h1 {
-  font-size: 40px;
+  font-size: 42px;
   font-weight: 700;
   line-height: 1.1;
-  color: var(--text);     /* #1d1d1f — maximum contrast */
+  color: var(--text);
   margin-bottom: 10px;
   letter-spacing: -.03em;
 }
-.hero-h1 span { color: var(--teal); display: block; }
+.hero-h1 span { color: var(--green); display: block; }
 
 /* ── SOCIAL PROOF ── */
 .social-proof {
@@ -191,24 +184,24 @@ a:hover { color: var(--teal-bright); text-decoration: underline; }
   gap: 9px;
   margin-bottom: 28px;
   padding: 8px 16px;
-  border: 1.5px solid var(--teal-border);
+  border: 1.5px solid var(--green-border);
   border-radius: 100px;
-  background: var(--teal-light);
+  background: var(--green-light);
 }
-.social-proof-dot { width:6px; height:6px; border-radius:50%; background:var(--teal); flex-shrink:0; }
-.social-proof-text { font-size: 13px; color: var(--teal-dim); letter-spacing: .01em; }
-.social-proof-text strong { color: var(--teal); font-weight: 600; }
+.social-proof-dot { width:6px; height:6px; border-radius:50%; background:var(--green); flex-shrink:0; }
+.social-proof-text { font-size:13px; color:var(--green-dim); letter-spacing:.01em; }
+.social-proof-text strong { color:var(--green); font-weight:600; }
 
 /* ── PROMPT CARD ── */
 .prompt-card {
-  border: 1.5px solid var(--teal);
+  border: 1.5px solid var(--green);
   border-radius: var(--radius);
   background: var(--bg2);
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(10,125,92,.12);
+  box-shadow: 0 4px 24px rgba(26,107,69,.10);
 }
 .prompt-card-header {
-  background: var(--teal);
+  background: var(--green);
   padding: 11px 24px;
   display: flex;
   align-items: center;
@@ -220,18 +213,18 @@ a:hover { color: var(--teal-bright); text-decoration: underline; }
   font-family: var(--mono);
   font-size: 10px;
   letter-spacing: .14em;
-  color: #d0ede4;
+  color: #c8e8d8;
   text-transform: uppercase;
 }
 .prompt-card-deadline {
   font-family: var(--mono);
   font-size: 10px;
-  color: #a8d8c8;
+  color: #a0ccb8;
   letter-spacing: .06em;
 }
 .prompt-card-body { padding: 32px 28px 28px; }
 .prompt-question {
-  font-size: 32px;
+  font-size: 34px;
   font-weight: 700;
   color: var(--text);
   line-height: 1.15;
@@ -239,91 +232,75 @@ a:hover { color: var(--teal-bright); text-decoration: underline; }
   letter-spacing: -.02em;
 }
 .prompt-sub {
-  font-size: 15px;
+  font-size: 16px;
   color: var(--text-3);
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   font-style: italic;
-  font-weight: 400;
 }
-.prompt-actions { display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+.prompt-actions { display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-bottom:20px; }
 
-/* ── STEP BAR ── */
-.step-bar {
-  margin: 16px 0 0;
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  background: var(--border);
-  gap: 1px;
-}
-.step-bar-item {
-  padding: 18px 18px 16px;
+/* Bounty contribution nudge — inside prompt card */
+.bounty-nudge {
   display: flex;
-  flex-direction: column;
-  gap: 5px;
-  background: var(--bg2);
-  transition: background .15s;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 16px;
+  background: var(--orange-light);
+  border: 1px solid var(--orange-border);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--orange-dim);
+  line-height: 1.5;
 }
-.step-bar-item:hover { background: var(--bg3); }
-.step-bar-n {
+.bounty-nudge-icon { font-size: 16px; flex-shrink: 0; }
+.bounty-nudge a { color: var(--orange); font-weight: 600; text-decoration: underline; }
+
+/* ── DIVIDER ── */
+.divider { height: 1px; background: var(--border); margin: 56px 0 0; }
+
+/* ── WHO WE ARE — trust layer ── */
+.trust-section { padding: 56px 0; }
+.trust-label {
   font-family: var(--mono);
-  font-size: 10px;
-  color: var(--teal);
-  letter-spacing: .1em;
-  font-weight: bold;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  color: var(--orange);
   text-transform: uppercase;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
-.step-bar-label {
-  font-size: 13px;
-  color: var(--text-2);   /* #3d3d3f — strong, fully legible */
-  line-height: 1.35;
-  font-weight: 500;
-}
+.trust-label::after { content:''; flex:1; height:1px; background:var(--orange-border); }
 
-/* ── CONTEXT + VIDEO ── */
-.context-block { padding: 48px 0; border-top: 1px solid var(--border); margin-top: 40px; }
-
-.hero-body {
-  font-size: 17px;
-  color: var(--text-2);   /* #3d3d3f */
+.trust-body {
+  font-size: 18px;
+  color: var(--text-2);
   line-height: 1.75;
-  max-width: 640px;
-  margin-bottom: 24px;
+  max-width: 660px;
+  margin-bottom: 28px;
   font-weight: 400;
 }
 
-.hero-pills { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:32px; }
-.pill {
-  display:inline-flex; align-items:center; gap:9px;
-  border:1px solid var(--border); border-radius:8px;
-  padding:9px 16px;
-  font-size: 13px;
-  color: var(--text-3);
-  background: var(--bg2);
-  font-weight: 500;
-}
-.pill-dot { width:6px; height:6px; border-radius:50%; background:var(--teal); flex-shrink:0; }
-
-/* ── VIDEO ── */
+/* Video */
 .video-section {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
   background: var(--bg2);
-  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  box-shadow: 0 2px 16px rgba(26,22,18,.06);
 }
 .video-label {
   display: flex; align-items: center; gap: 10px;
   padding: 13px 20px;
   border-bottom: 1px solid var(--border);
   font-size: 13px;
-  color: var(--text-2);   /* #3d3d3f — legible */
+  color: var(--text-2);
   font-weight: 500;
   background: var(--bg3);
 }
-.video-label-dot { width:7px; height:7px; border-radius:50%; background:var(--teal); flex-shrink:0; }
+.video-label-dot { width:7px; height:7px; border-radius:50%; background:var(--orange); flex-shrink:0; }
 .video-wrap { position:relative; width:100%; padding-bottom:56.25%; height:0; background:#000; }
 .video-wrap iframe { position:absolute; top:0; left:0; width:100%; height:100%; display:block; }
 .video-caption {
@@ -334,45 +311,86 @@ a:hover { color: var(--teal-bright); text-decoration: underline; }
   letter-spacing: .01em;
 }
 
+/* ── SECOND CTA — after trust ── */
+.mid-cta {
+  padding: 48px 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.mid-cta-text {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -.02em;
+  line-height: 1.2;
+}
+.mid-cta-text span { color: var(--green); }
+
 /* ── BUTTONS ── */
 .btn-primary {
-  display:inline-flex; align-items:center; gap:8px;
-  background: var(--teal);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--green);
   color: #fff;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
-  letter-spacing: .01em;
-  padding: 13px 24px;
-  border-radius: 980px; /* Apple pill */
+  padding: 14px 26px;
+  border-radius: 980px;
   border: none; cursor: pointer;
   text-decoration: none;
   transition: background .15s, transform .1s;
-  box-shadow: 0 2px 10px rgba(10,125,92,.28);
+  box-shadow: 0 2px 12px rgba(26,107,69,.25);
+  white-space: nowrap;
 }
-.btn-primary:hover { background: var(--teal-bright); color:#fff; transform:translateY(-1px); text-decoration:none; }
+.btn-primary:hover { background:var(--green-bright); color:#fff; transform:translateY(-1px); text-decoration:none; }
 
 .btn-secondary {
-  display:inline-flex; align-items:center; gap:8px;
-  border: 1.5px solid var(--teal);
-  color: var(--teal);
-  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1.5px solid var(--green);
+  color: var(--green);
+  font-size: 15px;
   font-weight: 600;
-  letter-spacing: .01em;
-  padding: 12px 24px;
+  padding: 13px 26px;
   border-radius: 980px;
   background: transparent;
   cursor: pointer;
   text-decoration: none;
   transition: all .15s;
+  white-space: nowrap;
 }
-.btn-secondary:hover { background: var(--teal-light); text-decoration:none; }
+.btn-secondary:hover { background:var(--green-light); text-decoration:none; }
 
-/* ── SECTIONS ── */
-.section { padding: 60px 0; border-bottom: 1px solid var(--border); }
+.btn-orange {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--orange);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px 26px;
+  border-radius: 980px;
+  border: none; cursor: pointer;
+  text-decoration: none;
+  transition: background .15s, transform .1s;
+  box-shadow: 0 2px 12px rgba(212,98,42,.25);
+  white-space: nowrap;
+}
+.btn-orange:hover { background:var(--orange-dim); color:#fff; transform:translateY(-1px); text-decoration:none; }
+
+/* ── PARTICIPATION SECTION ── */
+.section { padding: 56px 0; border-bottom: 1px solid var(--border); }
 .section-label {
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: .12em;
+  letter-spacing: .14em;
   color: var(--text-3);
   text-transform: uppercase;
   display: flex;
@@ -382,49 +400,16 @@ a:hover { color: var(--teal-bright); text-decoration: underline; }
 }
 .section-label::after { content:''; flex:1; height:1px; background:var(--border); }
 
-/* ── FIRST TIMER ── */
-.first-timer-note {
-  font-size: 14px;
+.section-intro {
+  font-size: 16px;
   color: var(--text-3);
-  margin-bottom: 18px;
+  margin-bottom: 36px;
 }
-.first-timer-note span { color: var(--gold); font-weight: 600; }
 
-/* ── WALLET WARNING ── */
-.wallet-warning {
-  border: 1px solid var(--gold-border);
-  border-left: 4px solid var(--gold);
-  border-radius: 0 10px 10px 0;
-  background: var(--gold-bg);
-  padding: 20px 22px;
-  margin-bottom: 40px;
-}
-.wallet-warning-top { display:flex; align-items:flex-start; gap:12px; margin-bottom:14px; }
-.warning-icon { color: var(--gold); font-size:16px; flex-shrink:0; margin-top:2px; }
-.wallet-warning p { font-size: 14px; color: #5c4800; line-height: 1.7; font-weight: 400; }
-.wallet-warning strong { color: var(--teal-dim); font-weight: 600; }
-.wallet-warning a { color: var(--teal); text-decoration: underline; }
-.wallet-guide-btn {
-  display:inline-flex; align-items:center; gap:7px;
-  border: 1px solid var(--gold-border);
-  color: var(--gold);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  padding: 9px 16px;
-  border-radius: 8px;
-  background: #fff;
-  cursor: pointer;
-  text-decoration: none;
-  transition: border-color .15s;
-}
-.wallet-guide-btn:hover { border-color: var(--gold); color: #6a5000; text-decoration:none; }
-
-/* ── STEP CARDS ── */
-.steps-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+/* ── STEP CARDS — vertical, all consistent ── */
+.steps-list {
+  display: flex;
+  flex-direction: column;
   gap: 2px;
   background: var(--border);
   border-radius: var(--radius);
@@ -433,309 +418,226 @@ a:hover { color: var(--teal-bright); text-decoration: underline; }
 }
 .step-card {
   background: var(--bg2);
-  padding: 36px 32px;
+  padding: 32px 36px;
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
   position: relative;
   overflow: hidden;
   transition: background .2s;
 }
 .step-card:hover { background: var(--bg3); }
 
-/* Giant ghost number — visual texture only */
-.step-card-num {
-  font-family: var(--sans);
-  font-size: 100px;
-  font-weight: 800;
-  color: var(--teal);
-  opacity: .05;
-  line-height: 1;
-  position: absolute;
-  top: 12px; right: 20px;
-  letter-spacing: -.06em;
-  user-select: none; pointer-events: none;
+.step-card-left {
+  flex-shrink: 0;
+  width: 52px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2px;
 }
+.step-num {
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--green);
+  line-height: 1;
+  letter-spacing: -.04em;
+}
+.step-line {
+  width: 2px;
+  flex: 1;
+  min-height: 24px;
+  background: var(--green-border);
+  margin-top: 8px;
+  border-radius: 2px;
+}
+.step-card:last-child .step-line { display: none; }
 
-.step-card-label {
+.step-card-right { flex: 1; min-width: 0; }
+.step-tag {
   font-size: 11px;
   font-weight: 600;
   letter-spacing: .12em;
-  color: var(--teal);
+  color: var(--green);
   text-transform: uppercase;
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  margin-bottom: 8px;
 }
-.step-card-label::before { content:''; width:18px; height:2px; background:var(--teal); flex-shrink:0; border-radius:2px; }
-
 .step-card h3 {
   font-size: 20px;
   font-weight: 700;
-  color: var(--text);     /* #1d1d1f */
-  margin-bottom: 10px;
+  color: var(--text);
+  margin-bottom: 8px;
   line-height: 1.25;
   letter-spacing: -.02em;
 }
 .step-card p {
   font-size: 15px;
-  color: var(--text-2);   /* #3d3d3f */
+  color: var(--text-2);
   line-height: 1.7;
 }
-.step-card p a { color: var(--teal); }
+.step-card p a { color: var(--green); }
+.step-card p em { font-style: italic; color: var(--text-3); }
 
-.social-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+/* Wallet inline note — quiet, inside step 1 */
+.wallet-note {
+  margin-top: 14px;
+  padding: 12px 16px;
+  background: #fdf8ee;
+  border: 1px solid #e8d89a;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #6b5400;
+  line-height: 1.6;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.wallet-note-icon { flex-shrink: 0; margin-top: 1px; }
+.wallet-note a { color: var(--green); font-weight: 600; text-decoration: underline; }
+.wallet-note strong { color: #4a3a00; }
+
+/* Social tags — step 3 */
+.social-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
 .social-tag {
-  display:inline-flex; align-items:center; gap:6px;
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--text-2);   /* #3d3d3f — fully legible */
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 500;
+  color: var(--text-2);
   border: 1px solid var(--border);
-  padding: 6px 12px;
-  border-radius: 6px;
+  padding: 6px 12px; border-radius: 6px;
   background: var(--bg3);
 }
-.social-tag a { color: var(--teal); font-size: 12px; font-weight: 600; }
+.social-tag a { color: var(--green); font-size: 13px; font-weight: 600; }
 
-/* Step 4 — featured (full-width, teal tint) */
-.step-card-featured {
-  grid-column: 1 / -1;
-  background: var(--teal-light);
-  border-top: 2px solid var(--teal);
-  padding: 32px 32px;
+/* Prize + contribute — step 4 */
+.prize-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 18px;
+  flex-wrap: wrap;
 }
-.step-card-featured:hover { background: #d8eee7; }
-.step-card-featured .step-card-num { opacity: .04; font-size: 120px; top: -8px; }
-.step-card-featured .step-card-label { color: var(--teal-dim); }
-.step-card-featured .step-card-label::before { background: var(--teal-dim); }
-.step-card-featured h3 { font-size: 22px; color: var(--teal-dim); }
-.step-card-featured p { color: #2a6050; font-size: 15px; }
-
 .prize-badge {
   display: inline-flex;
   align-items: baseline;
   gap: 8px;
-  margin-top: 18px;
   padding: 12px 20px;
-  border: 1.5px solid var(--teal);
+  border: 1.5px solid var(--green);
   border-radius: 10px;
   background: #fff;
-  box-shadow: 0 2px 10px rgba(10,125,92,.12);
+  box-shadow: 0 2px 10px rgba(26,107,69,.10);
 }
-.prize-badge-amount {
-  font-size: 26px;
-  font-weight: 800;
-  color: var(--teal);
-  line-height: 1;
-  letter-spacing: -.02em;
-}
-.prize-badge-label {
+.prize-badge-amount { font-size: 26px; font-weight: 800; color: var(--green); line-height:1; letter-spacing:-.02em; }
+.prize-badge-label { font-size: 13px; color: var(--green-dim); font-weight: 600; }
+
+.contribute-note {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 12px 16px;
+  background: var(--orange-light);
+  border: 1px solid var(--orange-border);
+  border-radius: 10px;
   font-size: 13px;
-  color: var(--teal-dim);
-  font-weight: 600;
-  letter-spacing: .01em;
+  color: var(--orange-dim);
+  line-height: 1.55;
+  max-width: 300px;
 }
+.contribute-note-icon { flex-shrink: 0; font-size: 15px; margin-top: 1px; }
+.contribute-note a { color: var(--orange); font-weight: 600; text-decoration: underline; }
 
 /* ── IYKYK SURVEY ── */
-.survey-section { padding: 60px 0; border-bottom: 1px solid var(--border); }
-
+.survey-section { padding: 56px 0; border-bottom: 1px solid var(--border); }
 .survey-eyebrow {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: .12em;
-  color: var(--text-3);
-  text-transform: uppercase;
-  margin-bottom: 4px;
+  font-size: 11px; font-weight: 600; letter-spacing: .12em;
+  color: var(--text-3); text-transform: uppercase; margin-bottom: 4px;
 }
-.survey-intro {
-  font-size: 14px;
-  color: var(--text-3);   /* #6e6e73 — ok on white at this size */
-  margin-bottom: 24px;
-  line-height: 1.6;
-}
+.survey-intro { font-size: 14px; color: var(--text-3); margin-bottom: 24px; line-height: 1.6; }
 .survey-card {
   border: 1px solid var(--purple-border);
   border-radius: var(--radius);
   background: var(--bg2);
   overflow: hidden;
-  box-shadow: 0 2px 12px rgba(94,58,180,.08);
+  box-shadow: 0 2px 12px rgba(94,58,180,.07);
 }
 .survey-card-header {
   background: var(--purple-light);
   padding: 13px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  border-bottom: 1px solid var(--purple-border);
-  flex-wrap: wrap;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  border-bottom: 1px solid var(--purple-border); flex-wrap: wrap;
 }
 .survey-header-left { display:flex; align-items:center; gap:10px; }
 .iykyk-badge {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .1em;
-  color: var(--purple);
-  text-transform: uppercase;
-  background: #e8e0fc;
-  padding: 4px 10px;
-  border-radius: 6px;
-  border: 1px solid var(--purple-border);
+  font-size: 11px; font-weight: 700; letter-spacing: .1em;
+  color: var(--purple); text-transform: uppercase;
+  background: #e8e0fc; padding: 4px 10px; border-radius: 6px; border: 1px solid var(--purple-border);
 }
-.survey-card-label {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .08em;
-  color: var(--purple);
-  text-transform: uppercase;
-}
+.survey-card-label { font-size: 12px; font-weight: 600; letter-spacing: .08em; color: var(--purple); text-transform: uppercase; }
 .survey-deadline-badge {
-  font-size: 12px;
-  color: var(--purple-text);
-  font-weight: 600;
-  background: #e8e0fc;
-  padding: 4px 12px;
-  border-radius: 6px;
-  border: 1px solid var(--purple-border);
+  font-size: 12px; color: var(--purple-text); font-weight: 600;
+  background: #e8e0fc; padding: 4px 12px; border-radius: 6px; border: 1px solid var(--purple-border);
 }
 .survey-card-body { padding: 28px 24px; }
-.survey-title {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--text);     /* #1d1d1f */
-  margin-bottom: 12px;
-  line-height: 1.3;
-  letter-spacing: -.02em;
-}
-.survey-desc {
-  font-size: 15px;
-  color: var(--text-2);   /* #3d3d3f */
-  line-height: 1.75;
-  margin-bottom: 20px;
-  max-width: 580px;
-}
+.survey-title { font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 12px; line-height: 1.3; letter-spacing: -.02em; }
+.survey-desc { font-size: 15px; color: var(--text-2); line-height: 1.75; margin-bottom: 20px; max-width: 580px; }
 .survey-desc strong { color: var(--purple); font-weight: 600; }
-.survey-how {
-  background: var(--purple-light);
-  border: 1px solid var(--purple-border);
-  border-radius: 10px;
-  padding: 18px 20px;
-  margin-bottom: 22px;
-}
-.survey-how-label {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .12em;
-  color: var(--purple);
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
+.survey-how { background: var(--purple-light); border: 1px solid var(--purple-border); border-radius: 10px; padding: 18px 20px; margin-bottom: 22px; }
+.survey-how-label { font-size: 11px; font-weight: 700; letter-spacing: .12em; color: var(--purple); text-transform: uppercase; margin-bottom: 12px; }
 .survey-steps { display:flex; flex-direction:column; gap:10px; }
-.survey-step {
-  display:flex; align-items:flex-start; gap:12px;
-  font-size: 14px;
-  color: var(--text-2);   /* #3d3d3f */
-  line-height: 1.6;
-}
-.survey-step-n {
-  font-size: 13px;
-  color: var(--purple);
-  font-weight: 700;
-  flex-shrink: 0;
-  margin-top: 1px;
-  min-width: 28px;
-}
+.survey-step { display:flex; align-items:flex-start; gap:12px; font-size:14px; color:var(--text-2); line-height:1.6; }
+.survey-step-n { font-size:13px; color:var(--purple); font-weight:700; flex-shrink:0; margin-top:1px; min-width:28px; }
 .btn-survey {
   display:inline-flex; align-items:center; gap:8px;
-  background: var(--purple);
-  color: #fff;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: .01em;
-  padding: 13px 22px;
-  border-radius: 980px;
-  border: none; cursor: pointer;
-  text-decoration: none;
-  transition: background .15s;
+  background: var(--purple); color: #fff;
+  font-size: 14px; font-weight: 600; padding: 13px 22px;
+  border-radius: 980px; border: none; cursor: pointer;
+  text-decoration: none; transition: background .15s;
 }
 .btn-survey:hover { background: #7c3aed; color:#fff; text-decoration:none; }
-.survey-note {
-  font-size: 13px;
-  color: var(--text-3);   /* #6e6e73 — acceptable at 13px italic with this line height */
-  font-style: italic;
-  margin-top: 16px;
-  line-height: 1.6;
-}
+.survey-note { font-size: 13px; color: var(--text-3); font-style: italic; margin-top: 16px; line-height: 1.6; }
 
 /* ── STATS ── */
-.stats-section { padding: 60px 0; border-bottom: 1px solid var(--border); }
+.stats-section { padding: 56px 0; border-bottom: 1px solid var(--border); }
 .stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  gap: 2px;
-  background: var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  border: 1px solid var(--border);
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 2px; background: var(--border);
+  border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border);
 }
-.stat { background:var(--bg2); padding:36px 20px; text-align:center; transition:background .15s; }
-.stat:hover { background:var(--bg3); }
-.stat-value {
-  font-size: 32px;
-  font-weight: 800;
-  color: var(--teal);
-  line-height: 1;
-  margin-bottom: 8px;
-  letter-spacing: -.03em;
-}
-.stat-label {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: .1em;
-  color: var(--text-3);   /* #6e6e73 on white — passes AA for UI text */
-  text-transform: uppercase;
-  line-height: 1.5;
-}
+.stat { background: var(--bg2); padding: 36px 20px; text-align: center; transition: background .15s; }
+.stat:hover { background: var(--bg3); }
+.stat-value { font-size: 32px; font-weight: 800; color: var(--green); line-height: 1; margin-bottom: 8px; letter-spacing: -.03em; }
+.stat-label { font-size: 11px; font-weight: 600; letter-spacing: .1em; color: var(--text-3); text-transform: uppercase; line-height: 1.5; }
 
 /* ── QUOTE ── */
-.quote-section { padding: 60px 0; border-bottom: 1px solid var(--border); }
-.blockquote { border-left: 3px solid var(--teal); padding-left: 28px; }
-.blockquote p {
-  font-size: 22px;
-  font-weight: 300;
-  color: var(--text-2);   /* #3d3d3f */
-  line-height: 1.65;
-  font-style: italic;
-}
+.quote-section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+.blockquote { border-left: 3px solid var(--orange); padding-left: 28px; }
+.blockquote p { font-size: 22px; font-weight: 300; color: var(--text-2); line-height: 1.65; font-style: italic; }
 
 /* ── FOOTER ── */
-.footer { padding:48px 0 0; display:flex; justify-content:space-between; align-items:flex-start; gap:24px; flex-wrap:wrap; }
-.footer-left {
-  font-size: 13px;
-  color: var(--text-3);
-  line-height: 2.2;
-}
-.footer-left a { color: var(--teal); font-weight: 500; }
+.footer { padding: 48px 0 0; display:flex; justify-content:space-between; align-items:flex-start; gap:24px; flex-wrap:wrap; }
+.footer-left { font-size:13px; color:var(--text-3); line-height:2.2; }
+.footer-left a { color:var(--green); font-weight:500; }
 .footer-right { font-size:13px; color:var(--text-3); text-align:right; line-height:2.2; }
 .footer-right a { color:var(--text-3); }
-.footer-right a:hover { color:var(--teal); }
+.footer-right a:hover { color:var(--green); }
 
 /* ── RESPONSIVE ── */
-@media (max-width:640px) {
-  .hero-h1 { font-size:28px; }
+@media (max-width:660px) {
+  .hero-h1 { font-size:30px; }
   .prompt-question { font-size:24px; }
-  .steps-grid { grid-template-columns:1fr; }
-  .step-card-featured { grid-column:auto; }
+  .step-card { padding:24px 20px; gap:20px; }
+  .step-card-left { width:40px; }
+  .step-num { font-size:32px; }
   .stats-grid { grid-template-columns:repeat(2,1fr); }
   .logos { flex-wrap:wrap; }
   .partner-note { margin-left:0; text-align:left; }
-  .step-bar { grid-template-columns:repeat(2,1fr); }
-  .step-bar-item:nth-child(2) { border-right:none; }
-  .step-bar-item:nth-child(1),
-  .step-bar-item:nth-child(2) { border-bottom:1px solid var(--border); }
+  .mid-cta { flex-direction:column; align-items:flex-start; }
+  .prize-row { flex-direction:column; }
 }
 </style>
 </head>
 <body>
 
+<!-- ── TICKER ── -->
 <div class="ticker">
   <span class="ticker-dot"></span>
   <span>Submissions close</span>
@@ -744,13 +646,14 @@ a:hover { color: var(--teal-bright); text-decoration: underline; }
 
 <div class="page">
 
+  <!-- ══════════════════════════════════════════════════════
+       ABOVE THE FOLD — hook, prompt, single CTA
+       ══════════════════════════════════════════════════════ -->
   <div class="header">
     <div class="eyebrow">An experiment in journalism &nbsp;·&nbsp; #querytheworld</div>
 
     <div class="logos">
-      <div class="logo-wtm">
-        <img src="OG_Logo.png" alt="We Them Media">
-      </div>
+      <div class="logo-wtm"><img src="OG_Logo.png" alt="We Them Media"></div>
       <span class="logo-sep">×</span>
       <img src="poidh-logo.png" alt="POIDH" class="logo-poidh">
       <span class="logo-sep">×</span>
@@ -792,41 +695,23 @@ a:hover { color: var(--teal-bright); text-decoration: underline; }
           <a href="https://poidh.xyz/arbitrum/bounty/247" target="_blank" class="btn-primary">Submit your claim &nbsp;↗</a>
           <a href="https://x.com/poidhxyz/status/2038730508218347881" target="_blank" class="btn-secondary">New to POIDH? Wallet setup &nbsp;↗</a>
         </div>
-      </div>
-    </div>
-
-    <div class="step-bar">
-      <div class="step-bar-item">
-        <span class="step-bar-n">01</span>
-        <span class="step-bar-label">Film someone's answer</span>
-      </div>
-      <div class="step-bar-item">
-        <span class="step-bar-n">02</span>
-        <span class="step-bar-label">Submit on POIDH</span>
-      </div>
-      <div class="step-bar-item">
-        <span class="step-bar-n">03</span>
-        <span class="step-bar-label">Tag all three communities</span>
-      </div>
-      <div class="step-bar-item">
-        <span class="step-bar-n">04</span>
-        <span class="step-bar-label">Win $100 on Sunday</span>
+        <div class="bounty-nudge">
+          <span class="bounty-nudge-icon">🌱</span>
+          <span>Love this initiative? <a href="https://poidh.xyz/arbitrum/bounty/247" target="_blank">Add ETH to grow the prize pool</a> — use the same bounty link above.</span>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- CONTEXT + VIDEO -->
-  <div class="context-block">
-    <p class="hero-body">
-      We Them Media is the platform at the intersection of technology, community, and culture — with creators actively contributing from <strong style="color:var(--teal)">Nigeria, Kenya, and North America</strong>. Every week we post a journalism prompt as an on-chain bounty through POIDH, in partnership with IYKYK, a decentralized journalism network. Film it, submit it, get featured and paid if it lands.
+  <!-- ══════════════════════════════════════════════════════
+       WHO WE ARE — trust layer before the ask
+       ══════════════════════════════════════════════════════ -->
+  <div class="trust-section">
+    <div class="trust-label">Who we are</div>
+
+    <p class="trust-body">
+      We Them Media is a creator-driven media platform at the intersection of technology, community, and culture — with contributors actively working from <strong style="color:var(--green)">Nigeria, Kenya, and North America</strong>. Every week we post a journalism prompt as an on-chain bounty through POIDH, in partnership with IYKYK. Film it, submit it, get featured and paid if it lands.
     </p>
-    <div class="hero-pills">
-      <div class="pill">
-        <span style="font-size:11px;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;font-weight:600">This week</span>
-        <span class="pill-dot"></span>
-        <span style="color:var(--teal);font-weight:700">$100 in Arbitrum ETH</span>
-      </div>
-    </div>
 
     <div class="video-section">
       <div class="video-label">
@@ -846,63 +731,99 @@ a:hover { color: var(--teal-bright); text-decoration: underline; }
     </div>
   </div>
 
-  <!-- HOW TO PARTICIPATE -->
+  <!-- ══════════════════════════════════════════════════════
+       SECOND CTA — after trust is established
+       ══════════════════════════════════════════════════════ -->
+  <div class="mid-cta">
+    <div class="mid-cta-text">
+      Ready to participate?<br>
+      <span>Submissions close Sunday, April 6.</span>
+    </div>
+    <a href="https://poidh.xyz/arbitrum/bounty/247" target="_blank" class="btn-orange">Submit your claim &nbsp;↗</a>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       HOW TO PARTICIPATE — steps, once, vertical
+       ══════════════════════════════════════════════════════ -->
   <div class="section">
     <div class="section-label">How to participate</div>
+    <p class="section-intro">Four steps. Phone camera. Done by Sunday.</p>
 
-    <p class="first-timer-note">First time? <span>Setting up a wallet takes about 10 minutes</span> — the guide below walks through every step.</p>
-
-    <div class="wallet-warning">
-      <div class="wallet-warning-top">
-        <span class="warning-icon">⚠</span>
-        <p><strong>You need a wallet with ETH on Arbitrum to submit.</strong> Set up a free wallet at <a href="https://metamask.io" target="_blank">metamask.io</a> and bridge ETH to Arbitrum at <a href="https://bridge.arbitrum.io" target="_blank">bridge.arbitrum.io</a>. A small amount covers the submission fee.</p>
-      </div>
-      <a href="https://x.com/poidhxyz/status/2038730508218347881" target="_blank" class="wallet-guide-btn">Step-by-step wallet &amp; submission guide &nbsp;↗</a>
-    </div>
-
-    <div class="steps-grid">
+    <div class="steps-list">
 
       <div class="step-card">
-        <div class="step-card-num">1</div>
-        <div class="step-card-label">Step one</div>
-        <h3>Find this week's bounty</h3>
-        <p>Browse active prompts at <a href="https://poidh.xyz/a/wethemmedia" target="_blank">poidh.xyz/a/wethemmedia</a>. One question, your lens, your city. This week: <em>"What's Made You Smile Today?"</em></p>
-      </div>
-
-      <div class="step-card">
-        <div class="step-card-num">2</div>
-        <div class="step-card-label">Step two</div>
-        <h3>Film it and submit on POIDH</h3>
-        <p>Phone camera. One to three minutes. Walk up to someone, ask the question, let them answer. Upload directly on the bounty page before Sunday, April 6 at 12pm PST.</p>
-      </div>
-
-      <div class="step-card">
-        <div class="step-card-num">3</div>
-        <div class="step-card-label">Step three</div>
-        <h3>Post it and loop in the community</h3>
-        <p>Share your clip and invite all three communities into your post at once.</p>
-        <div class="social-tags">
-          <div class="social-tag">Instagram &nbsp;<a href="https://instagram.com/we_them_media" target="_blank">@we_them_media</a> + <a href="https://instagram.com/poidhxyz" target="_blank">@poidhxyz</a></div>
-          <div class="social-tag">X &nbsp;<a href="https://x.com/WeThemMediaHQ" target="_blank">@WeThemMediaHQ</a></div>
-          <div class="social-tag">Telegram &nbsp;<a href="https://t.me/+0gAjqeEWnZ4yMWIx" target="_blank">Join the group</a></div>
+        <div class="step-card-left">
+          <span class="step-num">1</span>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-card-right">
+          <div class="step-tag">Find the bounty</div>
+          <h3>Browse this week's prompt</h3>
+          <p>Head to <a href="https://poidh.xyz/a/wethemmedia" target="_blank">poidh.xyz/a/wethemmedia</a>. This week: <em>"What's Made You Smile Today?"</em> — one question, your lens, your city.</p>
+          <div class="wallet-note">
+            <span class="wallet-note-icon">⚠</span>
+            <span><strong>You'll need a wallet with ETH on Arbitrum to submit.</strong> New to crypto? <a href="https://x.com/poidhxyz/status/2038730508218347881" target="_blank">This guide walks you through setup in 10 minutes →</a></span>
+          </div>
         </div>
       </div>
 
-      <div class="step-card step-card-featured">
-        <div class="step-card-num">4</div>
-        <div class="step-card-label">Step four &nbsp;·&nbsp; the payoff</div>
-        <h3>Get featured and earn</h3>
-        <p>Winner selected live on Sunday Service every week. Paid on-chain directly to your wallet. Your clip travels across six platforms with your name on it.</p>
-        <div class="prize-badge">
-          <span class="prize-badge-amount">$100</span>
-          <span class="prize-badge-label">in Arbitrum ETH &nbsp;·&nbsp; paid on-chain</span>
+      <div class="step-card">
+        <div class="step-card-left">
+          <span class="step-num">2</span>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-card-right">
+          <div class="step-tag">Film and submit</div>
+          <h3>Film it and submit on POIDH</h3>
+          <p>Phone camera. One to three minutes. Walk up to someone, ask the question, let them answer. Upload directly on the bounty page before Sunday, April 6 at 12pm PST.</p>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-card-left">
+          <span class="step-num">3</span>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-card-right">
+          <div class="step-tag">Post and tag</div>
+          <h3>Loop in all three communities</h3>
+          <p>Share your clip and invite all three communities into your post at once.</p>
+          <div class="social-tags">
+            <div class="social-tag">Instagram &nbsp;<a href="https://instagram.com/we_them_media" target="_blank">@we_them_media</a> + <a href="https://instagram.com/poidhxyz" target="_blank">@poidhxyz</a></div>
+            <div class="social-tag">X &nbsp;<a href="https://x.com/WeThemMediaHQ" target="_blank">@WeThemMediaHQ</a></div>
+            <div class="social-tag">Telegram &nbsp;<a href="https://t.me/+0gAjqeEWnZ4yMWIx" target="_blank">Join the group</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-card-left">
+          <span class="step-num">4</span>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-card-right">
+          <div class="step-tag">The payoff</div>
+          <h3>Get featured and earn</h3>
+          <p>Winner selected live on Sunday Service every week. Paid on-chain directly to your wallet. Your clip travels across six platforms with your name on it.</p>
+          <div class="prize-row">
+            <div class="prize-badge">
+              <span class="prize-badge-amount">$100</span>
+              <span class="prize-badge-label">in Arbitrum ETH &nbsp;·&nbsp; paid on-chain</span>
+            </div>
+            <div class="contribute-note">
+              <span class="contribute-note-icon">🌱</span>
+              <span>Want to grow the pot? <a href="https://poidh.xyz/arbitrum/bounty/247" target="_blank">Add ETH to this bounty</a> — the community builds the prize together.</span>
+            </div>
+          </div>
         </div>
       </div>
 
     </div>
   </div>
 
-  <!-- IYKYK SURVEY -->
+  <!-- ══════════════════════════════════════════════════════
+       IYKYK SURVEY — clearly secondary
+       ══════════════════════════════════════════════════════ -->
   <div class="survey-section">
     <div class="survey-eyebrow">While you're here &nbsp;·&nbsp; IYKYK × We Them Media</div>
     <p class="survey-intro">A parallel initiative from our partners at IYKYK — separate from the bounty, takes 5 minutes.</p>
@@ -916,7 +837,7 @@ a:hover { color: var(--teal-bright); text-decoration: underline; }
       </div>
       <div class="survey-card-body">
         <h2 class="survey-title">Help shape what we build next.</h2>
-        <p class="survey-desc">Each week, an AI-powered survey goes live via <strong>Harmonica.ai</strong> — a conversational format that feels like a dialogue, not a form. Your responses are compiled into a growing <strong>community knowledge graph</strong> that guides what IYKYK funds, builds, and prioritises next.</p>
+        <p class="survey-desc">Each week, an AI-powered survey goes live via <strong>Harmonica.ai</strong> — a conversational format that feels like a dialogue, not a form. Your responses compile into a growing <strong>community knowledge graph</strong> that guides what IYKYK funds, builds, and prioritises next.</p>
         <div class="survey-how">
           <div class="survey-how-label">How to participate</div>
           <div class="survey-steps">
@@ -931,7 +852,9 @@ a:hover { color: var(--teal-bright); text-decoration: underline; }
     </div>
   </div>
 
-  <!-- STATS -->
+  <!-- ══════════════════════════════════════════════════════
+       STATS
+       ══════════════════════════════════════════════════════ -->
   <div class="stats-section">
     <div class="section-label">What you tap into</div>
     <div class="stats-grid">
@@ -942,14 +865,18 @@ a:hover { color: var(--teal-bright); text-decoration: underline; }
     </div>
   </div>
 
-  <!-- QUOTE -->
+  <!-- ══════════════════════════════════════════════════════
+       QUOTE
+       ══════════════════════════════════════════════════════ -->
   <div class="quote-section">
     <div class="blockquote">
       <p>You do not need to be a journalist. You do not need a format. You need one honest answer from one real person to one simple question. We take it from there.</p>
     </div>
   </div>
 
-  <!-- FOOTER -->
+  <!-- ══════════════════════════════════════════════════════
+       FOOTER
+       ══════════════════════════════════════════════════════ -->
   <div class="footer">
     <div class="footer-left">
       <a href="https://poidh.xyz/a/wethemmedia" target="_blank">poidh.xyz/a/wethemmedia</a><br>
